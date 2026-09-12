@@ -145,6 +145,21 @@ flowchart LR
 
 Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
 
+
+## Companion: live tip ticker (Grok Bot)
+
+After the node is running, spin up a second Grok Bot teammate as a **live tip / status ticker** (not a second full node).
+
+**Suggested name:** `Kaspa node live bot`
+
+**What it’s for:** short digests of tip progress from the shared box — latest `Accepted … blocks … via relay` / processed headers-blocks lines, PID alive?, advertised public `IP:port` (bore tunnel when used). Optional `@every 5m` routine: post when there’s useful new tip activity; stay quiet otherwise; alert if the process is down.
+
+**What it’s not:** it should not restart `kaspad` or own keepalive (that stays with the main node agent / 20‑minute check-only routine).
+
+**One-line brief you can paste when creating the bot:**
+
+> Live tip ticker for my Kaspa mainnet archival node on this Grok Bot box. Read `/tmp/kaspa-logs-mainnet/rusty-kaspa.log`, `/tmp/kaspa.pid`, `/tmp/kaspa-tunnel.addr`. Show latest tip/relay lines briefly. `@every 5m` digest when useful; quiet if nothing new; say once if down. Don’t restart kaspad. Am-I-public: https://arewepublicyet.com with the advertised IP:port.
+
 ## Limits (honest)
 
 - Archival needs **lots of disk** and steady bandwidth over time.  

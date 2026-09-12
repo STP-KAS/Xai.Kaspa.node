@@ -35,6 +35,7 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
 - Process stays up with peer/IBD activity during sync.
 - After sync: archival + public P2P, real attempt to appear on https://kaspa.stream/nodes.
 - 20-minute keep-alive routine is installed: check only; restart/resume only if down; never wipe datadir.
+- Optional: offer/create a companion **live tip ticker** bot (see README) for short tip/relay digests — it must not restart kaspad.
 
 On https://kaspa.stream/nodes use **IP / hostname** + **Port** = the advertised `--externalip` pair (WARP IP:`16111` or bore IPv4:`tunnel-port`), then CHECK.
 
