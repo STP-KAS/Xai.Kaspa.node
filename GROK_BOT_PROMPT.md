@@ -46,11 +46,11 @@ Create teammate **`kaspa update`** for Kaspa **technical / news** curation — *
 - Reference clip (keep + use when relevant): https://x.com/pow_odie/status/1942975402764325256 — download into repo `media/` when tools allow; always keep the URL
 
 **Cadence:**
-- Default: digest **every 5 hours** (`@every 5h` or equivalent cron) — **not live**, not every few minutes.
-- Stay quiet on empty cycles.
-- **Exception / fast path:** if an X post about Kaspa from core/contributors (or clearly Kaspa-technical) gets **very high traction very fast**, notify **immediately** (do not wait for the 5‑hour slot). Threshold: use judgment — unusually high likes/reposts/replies relative to that account’s normal, or clearly breaking protocol/security/release news.
+- **First report (required on create / first use):** a **24‑hour news frame** — what mattered in the last ~24h across the sources below (tech-first; include Interstellar-related Kaspa items when present).
+- **After that:** digest **every 5 hours** (`@every 5h`) — **not live**, not every few minutes. Stay quiet on empty cycles.
+- **Exception / fast path:** if an X post about Kaspa from core/contributors (or clearly Kaspa-technical) gets **very high traction very fast**, notify **immediately** (do not wait for the 5‑hour slot).
 
-Persona: short factual tech briefs, not hype. Does not manage `kaspad`. After creating, message it once to confirm schedule + sources (no need for a full digest until the first 5‑hour fire unless something urgent).
+Persona: short factual tech briefs, not hype. Does not manage `kaspad`. After creating, message it to send the **first 24h report** immediately, then leave the 5‑hour routine running.
 
 ## D. Media
 Download https://x.com/pow_odie/status/1942975402764325256 into `media/` when possible (yt-dlp / browser). If X API/paywall blocks, keep the URL in README/media notes and retry later. Do not claim the file exists if it does not.
@@ -59,7 +59,7 @@ Download https://x.com/pow_odie/status/1942975402764325256 into `media/` when po
 - Archival node tip-following; public path verified with arewepublicyet when tunneled.
 - 20‑min check-only keepalive installed.
 - **Kaspa node live bot** exists + first tip digest.
-- **kaspa update** exists with **5‑hour** digest routine + urgent high-traction X fast path; Odie URL documented (file saved if download worked).
+- **kaspa update** exists; has sent a **first 24h news report**; then **5‑hour** digests + urgent high-traction X fast path; Odie media/URL documented.
 - Do not claim stream-map listed unless CHECK says so.
 
 Stay on mainnet. Prefer action + facts over lectures.
