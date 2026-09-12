@@ -14,6 +14,8 @@ You have a Linux sandbox. Goal: stand up the full Kaspa operator stack in **one 
 
 Do not lecture first — execute, then report what actually happened.
 
+**Main agent name:** create/rename this operator agent to **`kaspa bot`** (node owner: archival kaspad, bore/public, keepalive). Companions stay separate: `Kaspa node live bot`, `kaspa update`, `kaspa help`.
+
 ## Constraints (verify with commands, don’t assume)
 - Prefer official prebuilt `rusty-kaspa` Linux amd64 from `kaspanet/rusty-kaspa` — do not build from source unless download fails.
 - No Docker unless it already works.
@@ -67,11 +69,12 @@ Behavior: short routing + ask-well tips; answer basic public-docs questions when
 
 ## D. Media + weekly Odie (owned by kaspa update)
 Save https://x.com/pow_odie/status/1942975402764325256 (or user-provided file) as `media/odie-pow-weekly.mp4` on the shared box.
-**kaspa update** (not the node agent) must:
+**kaspa update** (not **kaspa bot**) must:
 - On create / first use: test-send the video once in the **kaspa update** chat
 - Routine **every Friday 18:00 local** (`0 18 * * 5`): show that video once in the **kaspa update** chat with a short caption + source URL
 
 ## Success criteria
+- Main operator agent is named **`kaspa bot`**.
 - Archival node tip-following; public path verified with arewepublicyet when tunneled.
 - 20‑min check-only keepalive installed.
 - **Kaspa node live bot** exists + first tip digest.

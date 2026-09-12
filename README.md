@@ -1,6 +1,6 @@
 # Xai.Kaspa.node
 
-> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. **One prompt** does it all: mainnet **archival** node, bore public path if WARP blocks inbound, [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), 20‑min check-only keep-alive, **Kaspa node live bot** tip ticker, **kaspa update** (24h first report, then every **5 hours**, plus fast alerts for high-traction X), and **kaspa help** (Discord-first tech support router). Odie POW clip linked in the prompt. Phone/Windows needs nothing.
+> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot (main agent: **`kaspa bot`**). **One prompt** does it all: mainnet **archival** node, bore public path if WARP blocks inbound, [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), 20‑min check-only keep-alive, **Kaspa node live bot** tip ticker, **kaspa update** (24h first report, then every **5 hours**, plus fast alerts for high-traction X), and **kaspa help** (Discord-first tech support router). Odie POW clip linked in the prompt. Phone/Windows needs nothing.
 
 One **Grok Bot** prompt to launch a **Kaspa mainnet archival** full node, sync it, make **P2P public**, keep it alive with a **20-minute** health check, and check the public node map.
 
@@ -52,6 +52,16 @@ Map / discovery (can lag even when arewepublicyet already passes):
 
 - https://kaspa.stream/nodes  
 - https://kaspaglo.be/ (manual peer submit helps the next crawl)
+
+
+## Agents in this stack
+
+| Agent | Role |
+|-------|------|
+| **kaspa bot** | Main operator — archival node, bore/public, 20‑min keep-alive |
+| **Kaspa node live bot** | Tip ticker (`@every 5m` when useful) |
+| **kaspa update** | Tech/news (24h first report, then every 5h; Friday 18:00 Odie clip) |
+| **kaspa help** | Discord-first tech help router |
 
 ## Quick start
 
