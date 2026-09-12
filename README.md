@@ -43,7 +43,7 @@ Full runbook (what the bot fetches): [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md
 
 ## Checks / help
 
-- Autofilled public check (example): `https://arewepublicyet.com/?address=<ip>&port=<port>` — **am i live node?** builds this from `/tmp/kaspa-tunnel.addr`
+- Autofilled public check (pinned): https://arewepublicyet.com/?address=159.223.110.159&port=40462 — **am i live node?** has this IP attached
 - https://kaspa.stream/nodes  
 - https://discord.gg/kaspa  
 - https://docs.kaspa.org  

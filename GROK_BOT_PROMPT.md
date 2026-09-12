@@ -58,16 +58,17 @@ Then steer to docs / kaspaexplained / kaspa help. Confirm ready. No kaspad manag
 
 ## F. am i live node?
 
-Create it. Read-only public checker.
+Create it. Read-only public checker. **Pin the live tunnel into the bot profile:**
 
-1. Read `/tmp/kaspa-tunnel.addr` (first `ipv4:port` line).
-2. Always share the **autofilled** link:
-   `https://arewepublicyet.com/?address=<ip>&port=<port>`
-3. On open / when asked: `POST https://arewepublicyet.com/api/test-node` with  
-   `{"address":"<ip>","port":<port>,"timeoutSeconds":5,"network":"mainnet"}`  
-   and report pass/fail honestly.
-4. Also mention https://kaspa.stream/nodes (listing can lag).
-5. **Never** restart kaspad. Send first check + link now.
+- Default / attached endpoint: `159.223.110.159:40462`
+- Autofilled link (always): https://arewepublicyet.com/?address=159.223.110.159&port=40462
+
+1. Prefer the pinned IP:port above; refresh from `/tmp/kaspa-tunnel.addr` (first `ipv4:port`) only if the tunnel changes, then update the bot description.
+2. On open / when asked: `POST https://arewepublicyet.com/api/test-node` with  
+   `{"address":"159.223.110.159","port":40462,"timeoutSeconds":5,"network":"mainnet"}`  
+   (or the refreshed pair) and report pass/fail honestly.
+3. Also mention https://kaspa.stream/nodes (listing can lag).
+4. **Never** restart kaspad. Send first check + autofilled link now.
 
 ## Success
 
