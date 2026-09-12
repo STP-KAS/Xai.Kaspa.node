@@ -1,6 +1,6 @@
 # Xai.Kaspa.node
 
-> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. One prompt does it all: **mainnet archival** node on the bot’s Linux sandbox, public via bore if WARP blocks inbound, [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), **20‑minute check-only** keep-alive, and a companion **Kaspa node live bot** tip ticker. Your phone/Windows needs nothing.
+> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. **One prompt** does it all: mainnet **archival** node, bore public path if WARP blocks inbound, [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), 20‑min check-only keep-alive, **Kaspa node live bot** tip ticker, and **kaspa update** (tech/news every **5 hours**, plus fast alerts for high-traction X). Odie POW clip linked in the prompt. Phone/Windows needs nothing.
 
 One **Grok Bot** prompt to launch a **Kaspa mainnet archival** full node, sync it, make **P2P public**, keep it alive with a **20-minute** health check, and check the public node map.
 
@@ -57,8 +57,8 @@ Map / discovery (can lag even when arewepublicyet already passes):
 
 1. Open Grok Bot (mobile is fine).  
 2. Copy everything under the line in [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md).  
-3. Send it. Wait for sync; expect arewepublicyet + stream CHECK, a 20‑minute keep-alive, and a **Kaspa node live bot** tip ticker.  
-4. Leave keep-alive + tip-digest routines enabled.
+3. Send it. Expect: sync → public checks, 20‑min keep-alive, **Kaspa node live bot**, and **kaspa update** (5‑hour digests).  
+4. Leave keep-alive, tip-digest, and 5‑hour update routines enabled.
 
 
 ## Making it public on Grok Bot (best practice)
@@ -146,6 +146,20 @@ flowchart LR
 Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
 
 
+
+## Companion: kaspa update (tech / news)
+
+Also created by the **one prompt**. Name: **`kaspa update`**.
+
+| | |
+|---|---|
+| Cadence | **Every 5 hours** — not live |
+| Fast path | High-traction Kaspa X posts (core/contributors / breaking tech) → notify immediately |
+| Sources | `kaspanet` + contributor GitHub, core/contributor X, [kaspaexplained.com](https://kaspaexplained.com), Kas Smith, reference [Odie POW clip](https://x.com/pow_odie/status/1942975402764325256) |
+
+Does not run or restart the node.
+
+## Companion: live tip ticker (Grok Bot)
 ## Companion: live tip ticker (Grok Bot)
 
 Included in the **one prompt** above: after the node path is set up, the main agent creates a second Grok Bot teammate as a **live tip / status ticker** (not a second full node).
@@ -159,6 +173,12 @@ Included in the **one prompt** above: after the node path is set up, the main ag
 **One-line brief you can paste when creating the bot:**
 
 > Live tip ticker for my Kaspa mainnet archival node on this Grok Bot box. Read `/tmp/kaspa-logs-mainnet/rusty-kaspa.log`, `/tmp/kaspa.pid`, `/tmp/kaspa-tunnel.addr`. Show latest tip/relay lines briefly. `@every 5m` digest when useful; quiet if nothing new; say once if down. Don’t restart kaspad. Am-I-public: https://arewepublicyet.com with the advertised IP:port.
+
+
+## Reference media
+
+- Odie POW clip: https://x.com/pow_odie/status/1942975402764325256  
+  Keep under `media/` when download succeeds; URL is enough if X tooling blocks the file.
 
 ## Limits (honest)
 
