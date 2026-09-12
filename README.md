@@ -34,22 +34,18 @@ Create the companion agents as read-only day-to-day helpers (Kaspa node live bot
 | **kaspa update** | News + Friday Odie |
 | **kaspa help** | Discord-first help |
 | **what is kaspa?** | Explainer (no price predictions) |
-| **am i live node?** | Public check card (IP + port + steps) |
+| **am i live node?** | Public check card — per-user IP from that sandbox’s tunnel (updates when IP/port changes) |
 
-## Am I live? (what to paste on arewepublicyet)
+## Am I live? (per user)
 
-The site form often opens **empty** — a query link alone is not enough. Use the values **am i live node?** prints for *your* tunnel, or fill manually:
+**am i live node?** is custom per user: it reads **that** sandbox’s `/tmp/kaspa-tunnel.addr` and rebuilds the card when IP/port changes (new bore tunnel, etc.).
+
+The site form often opens **empty** — use the card values:
 
 1. Open https://arewepublicyet.com/
-2. **Address** = your public IP (from `/tmp/kaspa-tunnel.addr`, first `ip:port`)
-3. **Port** = that port
-4. **Network** = mainnet
-5. Click **Test Node Connectivity**
-
-Example (this repo’s demo tunnel — yours will differ):  
-- Address: `159.223.110.159`  
-- Port: `40462`  
-- Link: https://arewepublicyet.com/?address=159.223.110.159&port=40462  
+2. **Address** / **Port** from the bot card (or first `ip:port` in `/tmp/kaspa-tunnel.addr`)
+3. **Network** = mainnet
+4. Click **Test Node Connectivity**
 
 Also: https://kaspa.stream/nodes (map can lag even when the check passes).
 

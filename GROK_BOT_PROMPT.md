@@ -10,7 +10,7 @@ This stack belongs to the person who pasted [`START.md`](https://github.com/STP-
 - If they mess up: tell them clearly they can always return to  
   https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md  
   for a **fresh start** (re-paste the short block into kaspa bot).
-- Do not assume another user’s IP/port. Public check values come from **this** sandbox’s `/tmp/kaspa-tunnel.addr`.
+- Do not assume another user’s IP/port. Public check values come from **this** sandbox’s `/tmp/kaspa-tunnel.addr` and must update when that file changes (tell **am i live node?** / refresh its description).
 
 **Day-to-day:** companions are read-only helpers (open to read). **kaspa bot** is the operator they paste into.
 
@@ -30,7 +30,7 @@ This stack belongs to the person who pasted [`START.md`](https://github.com/STP-
 2. Mainnet **`--archival`**: `/tmp/kaspa-data-mainnet`, logs `/tmp/kaspa-logs-mainnet`, PID `/tmp/kaspa.pid`. RPC localhost only. Private during IBD.
 3. After IBD / tip-following: go public. If WARP blocks inbound → **bore** (`bore local 16111 --to bore.pub`), `--externalip=<ipv4>:<tunnel-port>`, save `/tmp/kaspa-tunnel.addr` (first line = `ipv4:port`).
 4. Verify with **am i live node?** check card + https://arewepublicyet.com/ ; then https://kaspa.stream/nodes (map can lag).
-5. Routine **`@every 20m`**: check only; restart kaspad/bore **only if down**; never wipe datadir; keep `--archival`.
+5. Routine **`@every 20m`**: check only; restart kaspad/bore **only if down**; never wipe datadir; keep `--archival`. If `/tmp/kaspa-tunnel.addr` changes, refresh **am i live node?** (description + tell it the new IP:port).
 
 Media: https://github.com/STP-KAS/Xai.Kaspa.node (`media/`)
 
@@ -68,9 +68,13 @@ Then steer to docs / kaspaexplained / kaspa help. Confirm ready. No kaspad manag
 
 ## F. am i live node?
 
-Create it. Read-only public checker for **this** user’s tunnel.
+Create it. Read-only public checker for **this** user’s tunnel — **per-user and dynamic**.
 
-**Important:** https://arewepublicyet.com/ often opens with an **empty form**. Never reply with only a bare URL. Always send a full **check card**:
+- Endpoint always comes from **this** sandbox: `/tmp/kaspa-tunnel.addr` (first `ipv4:port`).
+- Never hardcode another user’s IP. When the tunnel/IP/port changes, refresh immediately (update the companion description to the new pair).
+- https://arewepublicyet.com/ often opens with an **empty form**. Never reply with only a bare URL.
+
+Always send a full **check card**:
 
 ```
 Am I live?
@@ -83,7 +87,7 @@ Am I live?
 - API: POST /api/test-node → PASS/FAIL in chat
 ```
 
-Also mention https://kaspa.stream/nodes (listing can lag). Pin the current tunnel into the bot description when known; refresh when `/tmp/kaspa-tunnel.addr` changes. **Never** restart kaspad. Send the first check card now.
+Also mention https://kaspa.stream/nodes (listing can lag). **Never** restart kaspad. Send the first check card now.
 
 ## Success
 
