@@ -156,6 +156,7 @@ Also created by the **one prompt**. Name: **`kaspa update`**.
 | First report | **24‑hour** news frame on first use |
 | Cadence after | **Every 5 hours** — not live |
 | Fast path | High-traction Kaspa X posts (core/contributors / breaking tech) → notify immediately |
+| Weekly media | Odie POW clip every **Friday 18:00 local** in this bot’s chat |
 | Sources | `kaspanet` + contributor GitHub, core/contributor X, [kaspaexplained.com](https://kaspaexplained.com), Kas Smith, reference [Odie POW clip](https://x.com/pow_odie/status/1942975402764325256) |
 
 Does not run or restart the node.

@@ -65,8 +65,11 @@ Create teammate **`kaspa help`**: technical-question router. Point people to roo
 
 Behavior: short routing + ask-well tips; answer basic public-docs questions when clear; for seed/funds recovery, refuse and send to Discord with the safety line. Does **not** manage `kaspad`. After create, message it once so it confirms ready in chat.
 
-## D. Media
-Download https://x.com/pow_odie/status/1942975402764325256 into `media/` when possible (yt-dlp / browser). If X API/paywall blocks, keep the URL in README/media notes and retry later. Do not claim the file exists if it does not.
+## D. Media + weekly Odie (owned by kaspa update)
+Save https://x.com/pow_odie/status/1942975402764325256 (or user-provided file) as `media/odie-pow-weekly.mp4` on the shared box.
+**kaspa update** (not the node agent) must:
+- On create / first use: test-send the video once in the **kaspa update** chat
+- Routine **every Friday 18:00 local** (`0 18 * * 5`): show that video once in the **kaspa update** chat with a short caption + source URL
 
 ## Success criteria
 - Archival node tip-following; public path verified with arewepublicyet when tunneled.

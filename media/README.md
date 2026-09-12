@@ -1,7 +1,7 @@
 # media
 
-## Odie POW clip
+## Odie POW clip (weekly — kaspa update)
 
-- Source: https://x.com/pow_odie/status/1942975402764325256  
-- Video: [`odie-pow-1942975402764325256.mp4`](./odie-pow-1942975402764325256.mp4) (1920×1080, ~186s)  
-- Post screenshot: [`odie-pow-1942975402764325256_post.png`](./odie-pow-1942975402764325256_post.png)
+- Source: https://x.com/pow_odie/status/1942975402764325256
+- File: `odie-pow-weekly.mp4` (also `odie-pow-1942975402764325256.mp4`)
+- **Shown by `kaspa update` every Friday at 18:00 local** (not by the node agent)
