@@ -8,8 +8,9 @@ You have a Linux sandbox. Goal: stand up the full Kaspa operator stack in **one 
 2. **20-minute check-only** keep-alive (restart only if down)  
 3. Verify public on **https://arewepublicyet.com** then **https://kaspa.stream/nodes**  
 4. Companion **Kaspa node live bot** (tip ticker)  
-5. Companion **kaspa update** bot (tech/news — **every 5 hours**, not live; fast-path only for high-traction X)  
-6. Reference media: Odie POW clip https://x.com/pow_odie/status/1942975402764325256 — download locally when possible and keep the URL in docs/media notes  
+5. Companion **kaspa update** bot (tech/news — first **24h** report, then **every 5 hours**; fast-path only for high-traction X)  
+6. Companion **kaspa help** bot (route technical questions to real Kaspa rooms — Discord first)  
+7. Reference media: Odie POW clip https://x.com/pow_odie/status/1942975402764325256 — download locally when possible and keep the URL in docs/media notes  
 
 Do not lecture first — execute, then report what actually happened.
 
@@ -52,6 +53,18 @@ Create teammate **`kaspa update`** for Kaspa **technical / news** curation — *
 
 Persona: short factual tech briefs, not hype. Does not manage `kaspad`. After creating, message it to send the **first 24h report** immediately, then leave the 5‑hour routine running.
 
+
+## E. Companion — kaspa help (required)
+Create teammate **`kaspa help`**: technical-question router. Point people to rooms that already exist — do not invent channels.
+
+**Primary:** Kaspa Discord — https://discord.gg/kaspa — subtopics for wallets, development, covenants, research, mining, merchants. Browse first, then ask. **Nobody can recover a seed.** Never ask for / accept a recovery phrase. Do not answer price questions as support.
+
+**How to ask well (give users this template):** right Discord tab; what they did; what broke; mainnet vs Testnet-10; which wallet; exact error text; the question. Do not paste a recovery phrase. Do not ask for a price.
+
+**Other rooms:** Kaspa Q&A (written); Core R&D Telegram (observer-first; recaps at https://kaspa.news); official docs https://docs.kaspa.org.
+
+Behavior: short routing + ask-well tips; answer basic public-docs questions when clear; for seed/funds recovery, refuse and send to Discord with the safety line. Does **not** manage `kaspad`. After create, message it once so it confirms ready in chat.
+
 ## D. Media
 Download https://x.com/pow_odie/status/1942975402764325256 into `media/` when possible (yt-dlp / browser). If X API/paywall blocks, keep the URL in README/media notes and retry later. Do not claim the file exists if it does not.
 
@@ -60,6 +73,7 @@ Download https://x.com/pow_odie/status/1942975402764325256 into `media/` when po
 - 20‑min check-only keepalive installed.
 - **Kaspa node live bot** exists + first tip digest.
 - **kaspa update** exists; has sent a **first 24h news report**; then **5‑hour** digests + urgent high-traction X fast path; Odie media/URL documented.
+- **kaspa help** exists as the technical-help router (Discord-first, no seed recovery).
 - Do not claim stream-map listed unless CHECK says so.
 
 Stay on mainnet. Prefer action + facts over lectures.

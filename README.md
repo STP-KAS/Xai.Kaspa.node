@@ -1,6 +1,6 @@
 # Xai.Kaspa.node
 
-> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. **One prompt** does it all: mainnet **archival** node, bore public path if WARP blocks inbound, [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), 20‑min check-only keep-alive, **Kaspa node live bot** tip ticker, and **kaspa update** (tech/news every **5 hours**, plus fast alerts for high-traction X). Odie POW clip linked in the prompt. Phone/Windows needs nothing.
+> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. **One prompt** does it all: mainnet **archival** node, bore public path if WARP blocks inbound, [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), 20‑min check-only keep-alive, **Kaspa node live bot** tip ticker, **kaspa update** (24h first report, then every **5 hours**, plus fast alerts for high-traction X), and **kaspa help** (Discord-first tech support router). Odie POW clip linked in the prompt. Phone/Windows needs nothing.
 
 One **Grok Bot** prompt to launch a **Kaspa mainnet archival** full node, sync it, make **P2P public**, keep it alive with a **20-minute** health check, and check the public node map.
 
@@ -57,7 +57,7 @@ Map / discovery (can lag even when arewepublicyet already passes):
 
 1. Open Grok Bot (mobile is fine).  
 2. Copy everything under the line in [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md).  
-3. Send it. Expect: sync → public checks, 20‑min keep-alive, **Kaspa node live bot**, and **kaspa update** (5‑hour digests).  
+3. Send it. Expect: sync → public checks, keep-alive, **Kaspa node live bot**, **kaspa update**, and **kaspa help**.  
 4. Leave keep-alive, tip-digest, and 5‑hour update routines enabled.
 
 
@@ -159,6 +159,21 @@ Also created by the **one prompt**. Name: **`kaspa update`**.
 | Sources | `kaspanet` + contributor GitHub, core/contributor X, [kaspaexplained.com](https://kaspaexplained.com), Kas Smith, reference [Odie POW clip](https://x.com/pow_odie/status/1942975402764325256) |
 
 Does not run or restart the node.
+
+
+## Companion: kaspa help
+
+Also created by the **one prompt**. Name: **`kaspa help`**.
+
+Technical-question router — send people to rooms that already exist:
+
+| | |
+|---|---|
+| Primary | [Kaspa Discord](https://discord.gg/kaspa) — wallets, development, covenants, research, mining, merchants |
+| Rule | Browse first, then ask. **Nobody can recover a seed.** Never paste a recovery phrase. Not for price. |
+| Also | Kaspa Q&A; Core R&D Telegram (observer-first; [kaspa.news](https://kaspa.news) recaps); [docs.kaspa.org](https://docs.kaspa.org) |
+
+Does not run the node.
 
 ## Companion: live tip ticker (Grok Bot)
 ## Companion: live tip ticker (Grok Bot)
