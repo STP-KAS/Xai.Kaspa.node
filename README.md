@@ -1,6 +1,6 @@
 # Xai.Kaspa.node
 
-> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. It runs a Kaspa **mainnet archival** node on the **bot’s Linux sandbox** (your phone/Windows needs nothing). After sync it opens P2P `16111`, checks [kaspa.stream/nodes](https://kaspa.stream/nodes), and installs a **20‑minute check-only** keep-alive (restart only if down).
+> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. One prompt does it all: **mainnet archival** node on the bot’s Linux sandbox, public via bore if WARP blocks inbound, [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), **20‑minute check-only** keep-alive, and a companion **Kaspa node live bot** tip ticker. Your phone/Windows needs nothing.
 
 One **Grok Bot** prompt to launch a **Kaspa mainnet archival** full node, sync it, make **P2P public**, keep it alive with a **20-minute** health check, and check the public node map.
 
@@ -57,8 +57,8 @@ Map / discovery (can lag even when arewepublicyet already passes):
 
 1. Open Grok Bot (mobile is fine).  
 2. Copy everything under the line in [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md).  
-3. Send it. Wait for sync; the bot should CHECK your IP on [kaspa.stream/nodes](https://kaspa.stream/nodes) with port **16111**.  
-4. Leave the 20‑minute keep-alive routine enabled.
+3. Send it. Wait for sync; expect arewepublicyet + stream CHECK, a 20‑minute keep-alive, and a **Kaspa node live bot** tip ticker.  
+4. Leave keep-alive + tip-digest routines enabled.
 
 
 ## Making it public on Grok Bot (best practice)
@@ -84,7 +84,7 @@ A rented VPS with a real public IP and open `16111` is still the gold standard f
 
 Copy the entire prompt from [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into a Grok Bot chat and send it.
 
-That single message is enough: download `kaspad`, run archival IBD privately, flip to public P2P after sync, install a 20‑minute keep-alive, and look the node up on the stream map.
+That single message is enough: download `kaspad`, run archival IBD privately, flip to public P2P after sync (bore tunnel on Grok Bot/WARP), install a 20‑minute check-only keep-alive, verify on [arewepublicyet.com](https://arewepublicyet.com) + [kaspa.stream/nodes](https://kaspa.stream/nodes), and create the companion **Kaspa node live bot** tip ticker.
 
 ## How it works (short)
 
@@ -148,9 +148,9 @@ Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
 
 ## Companion: live tip ticker (Grok Bot)
 
-After the node is running, spin up a second Grok Bot teammate as a **live tip / status ticker** (not a second full node).
+Included in the **one prompt** above: after the node path is set up, the main agent creates a second Grok Bot teammate as a **live tip / status ticker** (not a second full node).
 
-**Suggested name:** `Kaspa node live bot`
+**Name:** `Kaspa node live bot`
 
 **What it’s for:** short digests of tip progress from the shared box — latest `Accepted … blocks … via relay` / processed headers-blocks lines, PID alive?, advertised public `IP:port` (bore tunnel when used). Optional `@every 5m` routine: post when there’s useful new tip activity; stay quiet otherwise; alert if the process is down.
 
