@@ -11,6 +11,26 @@ One **Grok Bot** prompt to launch a **Kaspa mainnet archival** full node, sync i
 | Public map | [kaspa.stream/nodes](https://kaspa.stream/nodes) |
 | Related | [nodes.kaspa.ws](https://nodes.kaspa.ws/), [arewepublicyet.com](https://arewepublicyet.com) |
 
+## Who runs it vs who hosts it
+
+**Grok Bot runs the node on the bot’s own Linux computer** (the sandbox attached to the chat). That is where `kaspad` lives — Linux binary, Linux process, Linux disk.
+
+**Your Windows PC (or phone) does not host the node.** You only direct it remotely: chat, GitHub login, and checking https://kaspa.stream/nodes.
+
+| Role | What |
+|------|------|
+| Operator / runner | Grok Bot agent |
+| Machine | Bot’s Linux sandbox (not a VPS you rent under your name) |
+| Your Windows / phone | Remote control only |
+
+Same idea as SSHing into a cloud box while you sit on Windows: you steer; the process runs elsewhere.
+
+### Cloudflare WARP (why the public IP looks odd)
+
+Outbound traffic from the bot’s Linux box is often wrapped by **Cloudflare WARP**. Sites like ipify may show a Cloudflare IP (e.g. `104.x.x.x`), not a home ISP address. That is **egress**, not “Kaspa is a Cloudflare product.”
+
+For the [kaspa.stream/nodes](https://kaspa.stream/nodes) CHECK to succeed, other peers must connect **in** to `IP:16111`. WARP/NAT often allows outbound sync but blocks or does not forward **inbound**. So the node can sync fine and still fail the map CHECK. A reliably public node usually needs a real VPS (or home network) with port `16111` reachable from the internet.
+
 ## The one prompt
 
 Copy the entire prompt from [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into a Grok Bot chat and send it.
@@ -20,7 +40,7 @@ That single message is enough: download `kaspad`, run archival IBD privately, fl
 ## How it works (short)
 
 1. **Prebuilt `kaspad`**  
-   Grok Bot pulls the latest `rusty-kaspa-*-linux-amd64.zip` from GitHub Releases and runs `kaspad`. Compiling on a small box is avoided.
+   Grok Bot pulls the latest `rusty-kaspa-*-linux-amd64.zip` from GitHub Releases and runs `kaspad` on the bot’s Linux sandbox. Compiling on a small box is avoided.
 
 2. **Archival**  
    `--archival` does **not** delete old block data when the pruning point moves. Full history = much more disk than a pruned node.
@@ -31,26 +51,28 @@ That single message is enough: download `kaspad`, run archival IBD privately, fl
 4. **Public after sync**  
    Rebind P2P to `0.0.0.0:16111`, set `--externalip=<public-ip>:16111`, allow inbound. **Public = P2P 16111**, not open RPC.
 
-5. **20-minute keep-alive (solves “ephemeral sandbox died”)**  
+5. **20-minute keep-alive**  
    Sandboxes can kill processes or reboot. The prompt installs a standing **`@every 20m`** routine (24/7):  
    - If `kaspad` is up and still archival → stay quiet  
    - If dead → restart with the **same datadir** (resume IBD / tip follow; do not wipe), same private-or-public mode, notify once  
-   This does **not** survive a total disk wipe of the VM image, but it does survive process crashes and most agent restarts as long as `/tmp` (or your chosen datadir) still has the chain data.
+   This does **not** survive a total disk wipe of the VM image, but it does survive process crashes and most agent restarts as long as the datadir still has the chain data.
 
 6. **Show up on the map**  
-   **https://kaspa.stream/nodes** — look up your public IP, port `16111`. Crawlers can take minutes or longer. WARP/CGNAT without a reachable inbound path may block listing even when `kaspad` is listening.
+   **https://kaspa.stream/nodes** — look up the bot box’s public IP, port `16111`. Crawlers can take minutes or longer. WARP/CGNAT without a reachable inbound path may block listing even when `kaspad` is listening.
 
 ```mermaid
 flowchart LR
-  A[Paste one Grok Bot prompt] --> B[Download rusty-kaspa kaspad]
+  U[You on Windows / phone] -->|chat / map CHECK| G[Grok Bot]
+  G --> L[Bot Linux sandbox]
+  L --> B[Download rusty-kaspa kaspad]
   B --> C[Archival mainnet private IBD]
   C --> D{Fully synced?}
   D -->|no| C
   D -->|yes| E[Public P2P 0.0.0.0:16111]
   E --> F[kaspa.stream/nodes]
-  C --> G[Every 20m: alive?]
-  E --> G
-  G -->|dead| H[Restart same datadir]
+  C --> K[Every 20m: alive?]
+  E --> K
+  K -->|dead| H[Restart same datadir]
   H --> C
   H --> E
 ```
@@ -59,7 +81,7 @@ flowchart LR
 
 | Role | Port | Public? |
 |------|------|--------|
-| P2P | `16111` | Yes, after sync |
+| P2P | `16111` | Yes, after sync (if inbound is reachable) |
 | gRPC | `16110` | No — `127.0.0.1` only |
 | wRPC borsh / json | `17110` / `18110` | No — localhost only |
 
@@ -75,4 +97,8 @@ Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
 
 ## Limits (honest)
 
-Archival needs **lots of disk** and steady bandwidth over time. A 20‑minute keep-alive restarts the **process** and resumes from disk; it cannot recreate blocks if the whole filesystem was erased. Prefer a durable data path when the host offers one. This repo is an operator prompt + notes, not a hosted node service.
+- Archival needs **lots of disk** and steady bandwidth over time.  
+- The node runs on the **bot’s ephemeral Linux sandbox**, not on your Windows PC and not on a VPS you own unless you move it there.  
+- A 20‑minute keep-alive restarts the **process** and resumes from disk; it cannot recreate blocks if the filesystem was erased.  
+- Cloudflare WARP may prevent a successful public map CHECK even after sync.  
+- This repo is an operator prompt + notes, not a hosted node service.
