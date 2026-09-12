@@ -4,8 +4,8 @@ Each person who uses this gets **their own** Grok Bot team (their sandbox, their
 
 ## Fresh start / reset
 
-Anytime: open this file again → new or existing **`kaspa bot`** → paste the block below → send.  
-That reloads the runbook from GitHub and rebuilds the stack.
+Anytime: open this file again → same **`kaspa bot`** → paste the block below → send.  
+That reloads the runbook from GitHub and **refreshes** the stack in place (reuses the five companions and the node — it does not spawn a second team).
 
 https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
 
