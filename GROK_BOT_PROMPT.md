@@ -24,10 +24,11 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
    - `--maxinpeers=0` until synced; keep outbound peers for IBD
 5. After start: PID, first ~80 log lines, RSS, alive after 20–30s. Must show peer connect and/or IBD progress or call it a failed experiment.
 6. Watch until fully synced. Real rusty-kaspa log cues include `IBD with peer … completed successfully` and then steady `Accepted … blocks … via relay` / tip-following (no more IBD %). If it dies: paste exact OOM/panic/error; restart with the **same datadir** (resume — do not `--reset-db` unless corruption is proven).
-7. **When fully synced**, go public:
-   - Relaunch same datadir with `--archival`, `--listen=0.0.0.0:16111`, `--maxinpeers` > 0, `--externalip=<public-ip>:16111`
-   - If behind Cloudflare WARP / CGNAT / no UPnP: try bind + externalip + any workable TCP tunnel; report honestly if inbound is impossible.
-8. Verify public: `ss` shows `0.0.0.0:16111`, then look up the IP on **https://kaspa.stream/nodes** (and/or https://arewepublicyet.com).
+7. **When fully synced**, go public (Grok Bot best practice):
+   - If the box public IP is Cloudflare WARP / inbound fails: run a TCP tunnel to local P2P, e.g. `bore local 16111 --to bore.pub`, note `bore.pub:<port>`, resolve IPv4 of `bore.pub`.
+   - Relaunch same datadir with `--archival`, `--listen=127.0.0.1:16111` (or `0.0.0.0` if truly bare-metal public), `--maxinpeers` > 0, `--externalip=<reachable-ipv4>:<port>` (tunnel port when using bore — **not** always 16111).
+   - `--externalip` must be `ip:port` (no hostname).
+8. Verify public: tunnel + kaspad both alive; CHECK on **https://kaspa.stream/nodes** with that **same IP and port**. Report honestly if still “not known.”
 9. **Keep-alive (required):** create a standing routine on a **`@every 20m`** schedule (24/7 — node uptime is time-critical). Each run: **check only**. If `kaspad` is healthy and still `--archival`, do **nothing** (no restart). If **down**/missing, restart with the same flags/mode (private vs public) and **same datadir**, tell me once. Never restart a healthy node. Never drop `--archival`.
 
 ## Success criteria
@@ -35,6 +36,6 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
 - After sync: archival + public P2P, real attempt to appear on https://kaspa.stream/nodes.
 - 20-minute keep-alive routine is installed: check only; restart/resume only if down; never wipe datadir.
 
-On https://kaspa.stream/nodes use **IP / hostname** = public IP and **Port** = `16111`, then CHECK.
+On https://kaspa.stream/nodes use **IP / hostname** + **Port** = the advertised `--externalip` pair (WARP IP:`16111` or bore IPv4:`tunnel-port`), then CHECK.
 
 Stay on mainnet. Prefer action + facts over lectures.

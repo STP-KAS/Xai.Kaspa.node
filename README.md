@@ -46,6 +46,23 @@ For the [kaspa.stream/nodes](https://kaspa.stream/nodes) CHECK to succeed, other
 3. Send it. Wait for sync; the bot should CHECK your IP on [kaspa.stream/nodes](https://kaspa.stream/nodes) with port **16111**.  
 4. Leave the 20‑minute keep-alive routine enabled.
 
+
+## Making it public on Grok Bot (best practice)
+
+Grok Bot’s Linux sandbox often sits behind **Cloudflare WARP**: outbound sync works, but inbound TCP `16111` to the WARP IP usually does **not**. Binding `0.0.0.0:16111` and setting `--externalip=<warp-ip>:16111` is not enough for [kaspa.stream/nodes](https://kaspa.stream/nodes).
+
+**Best practice on Grok Bot:**
+
+1. Keep `kaspad` listening on **localhost** `127.0.0.1:16111` (RPC stays localhost too).  
+2. Run a **TCP tunnel** from the public internet to that port, e.g. [`bore`](https://github.com/ekzhang/bore):  
+   `bore local 16111 --to bore.pub` → prints `bore.pub:<port>`.  
+3. Resolve `bore.pub` to an IPv4 address (kaspad `--externalip` needs `ip:port`, not a hostname).  
+4. Restart/advertise with `--externalip=<bore-ipv4>:<port>`.  
+5. CHECK on kaspa.stream using that **same IP and tunnel port** (not `16111`).  
+6. Keep-alive must ensure **both** `kaspad` and the tunnel are up (check only; restart only if down).
+
+A rented VPS with a real public IP and open `16111` is still the gold standard for a long-lived public archival node. The tunnel is the practical Grok Bot workaround.
+
 ## The one prompt
 
 Copy the entire prompt from [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into a Grok Bot chat and send it.
