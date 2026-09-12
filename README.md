@@ -1,38 +1,57 @@
 # Xai.Kaspa.node
 
-Use **GitHub**, not a long copy-paste.
+Your own Kaspa Grok Bot team — started from GitHub, not a long copy-paste.
+
+## Your team
+
+Anyone who follows [`START.md`](./START.md) gets **their own** agents on **their** Grok Bot sandbox. Change things whenever you want. If you break something, return to START.md for a **fresh start**:
+
+https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
 
 ## Step 1
 
-1. Create a **new Grok Bot agent**
-2. Name it **`kaspa bot`**
-3. Paste the short block from [`START.md`](./START.md) (or below) and send
+1. Create a **new Grok Bot agent** named **`kaspa bot`**
+2. Paste the short block in [`START.md`](./START.md) and send
 
-**kaspa bot = only input.**  
-Companions are **read-only** (open them to read; don’t paste the runbook into them).
+**kaspa bot = only input.** Companions are day-to-day read-only (still yours to customize via Grok).
 
 ### Paste this into kaspa bot
 
 ```
-You are kaspa bot. Fetch and follow this GitHub runbook exactly, then execute it end-to-end:
+You are kaspa bot. This is MY bot team on MY Grok Bot sandbox. Fetch and follow this GitHub runbook exactly, then execute it end-to-end for me:
 
 https://raw.githubusercontent.com/STP-KAS/Xai.Kaspa.node/main/GROK_BOT_PROMPT.md
 
-Create the companion agents as read-only for me (Kaspa node live bot, kaspa update, kaspa help, what is kaspa?, am i live node?). I will only paste into you. Report when the stack is up.
+Create the companion agents as read-only day-to-day helpers (Kaspa node live bot, kaspa update, kaspa help, what is kaspa?, am i live node?). I may customize anything later with Grok; if I mess up I will re-paste from START.md for a fresh start. Report when the stack is up.
 ```
-
-Full runbook (what the bot fetches): [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md)
 
 ## Agents
 
 | Agent | Role |
 |-------|------|
-| **kaspa bot** | Input / operator |
-| **Kaspa node live bot** | Read-only tip ticker |
-| **kaspa update** | Read-only news + Friday Odie |
-| **kaspa help** | Read-only Discord help |
-| **what is kaspa?** | Read-only explainer (no price predictions) |
-| **am i live node?** | Read-only public check + autofilled arewepublicyet link |
+| **kaspa bot** | Input / operator — your node |
+| **Kaspa node live bot** | Tip ticker |
+| **kaspa update** | News + Friday Odie |
+| **kaspa help** | Discord-first help |
+| **what is kaspa?** | Explainer (no price predictions) |
+| **am i live node?** | Public check card (IP + port + steps) |
+
+## Am I live? (what to paste on arewepublicyet)
+
+The site form often opens **empty** — a query link alone is not enough. Use the values **am i live node?** prints for *your* tunnel, or fill manually:
+
+1. Open https://arewepublicyet.com/
+2. **Address** = your public IP (from `/tmp/kaspa-tunnel.addr`, first `ip:port`)
+3. **Port** = that port
+4. **Network** = mainnet
+5. Click **Test Node Connectivity**
+
+Example (this repo’s demo tunnel — yours will differ):  
+- Address: `159.223.110.159`  
+- Port: `40462`  
+- Link: https://arewepublicyet.com/?address=159.223.110.159&port=40462  
+
+Also: https://kaspa.stream/nodes (map can lag even when the check passes).
 
 ## Sources (kaspa update)
 
@@ -41,10 +60,8 @@ Full runbook (what the bot fetches): [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md
 - https://x.com/kaspaunchained  
 - https://kaspa.stream/  
 
-## Checks / help
+## Help / docs
 
-- Autofilled public check (pinned): https://arewepublicyet.com/?address=159.223.110.159&port=40462 — **am i live node?** has this IP attached
-- https://kaspa.stream/nodes  
 - https://discord.gg/kaspa  
 - https://docs.kaspa.org  
 
