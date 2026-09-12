@@ -58,8 +58,11 @@ Grok Bot’s Linux sandbox often sits behind **Cloudflare WARP**: outbound sync 
    `bore local 16111 --to bore.pub` → prints `bore.pub:<port>`.  
 3. Resolve `bore.pub` to an IPv4 address (kaspad `--externalip` needs `ip:port`, not a hostname).  
 4. Restart/advertise with `--externalip=<bore-ipv4>:<port>`.  
-5. CHECK on kaspa.stream using that **same IP and tunnel port** (not `16111`).  
-6. Keep-alive must ensure **both** `kaspad` and the tunnel are up (check only; restart only if down).
+5. Verify with an **active** P2P probe first: [arewepublicyet.com](https://arewepublicyet.com) (API/UI) using the tunnel **IP + port**. A `success: true` P2P-gRPC handshake means you are publicly reachable.  
+6. Also CHECK [kaspa.stream/nodes](https://kaspa.stream/nodes). It may still say **“not known by the network”** for a while — that map is crawler/gossip based and can lag even when arewepublicyet already passes.  
+7. Keep-alive must ensure **both** `kaspad` and the tunnel are up (check only; restart only if down).
+
+**Example (this bot’s working pattern):** `bore.pub:<port>` → advertise `--externalip=<bore-ipv4>:<port>` → arewepublicyet succeeds; stream map may list later.
 
 A rented VPS with a real public IP and open `16111` is still the gold standard for a long-lived public archival node. The tunnel is the practical Grok Bot workaround.
 
