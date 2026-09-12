@@ -1,5 +1,7 @@
 # Xai.Kaspa.node
 
+> **TL;DR:** Paste [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md) into Grok Bot. It runs a Kaspa **mainnet archival** node on the **bot’s Linux sandbox** (your phone/Windows needs nothing). After sync it opens P2P `16111`, checks [kaspa.stream/nodes](https://kaspa.stream/nodes), and installs a **20‑minute check-only** keep-alive (restart only if down).
+
 One **Grok Bot** prompt to launch a **Kaspa mainnet archival** full node, sync it, make **P2P public**, keep it alive with a **20-minute** health check, and check the public node map.
 
 | | |
@@ -36,6 +38,13 @@ Same idea as SSHing into a cloud box while you sit on Windows: you steer; the pr
 Outbound traffic from the bot’s Linux box is often wrapped by **Cloudflare WARP**. Sites like ipify may show a Cloudflare IP (e.g. `104.x.x.x`), not a home ISP address. That is **egress**, not “Kaspa is a Cloudflare product.”
 
 For the [kaspa.stream/nodes](https://kaspa.stream/nodes) CHECK to succeed, other peers must connect **in** to `IP:16111`. WARP/NAT often allows outbound sync but blocks or does not forward **inbound**. So the node can sync fine and still fail the map CHECK. A reliably public node usually needs a real VPS (or home network) with port `16111` reachable from the internet.
+
+## Quick start
+
+1. Open Grok Bot (mobile is fine).  
+2. Copy everything under the line in [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md).  
+3. Send it. Wait for sync; the bot should CHECK your IP on [kaspa.stream/nodes](https://kaspa.stream/nodes) with port **16111**.  
+4. Leave the 20‑minute keep-alive routine enabled.
 
 ## The one prompt
 

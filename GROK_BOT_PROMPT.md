@@ -23,7 +23,7 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
    - `--rpclisten=127.0.0.1:16110` (borsh/json RPC localhost only)
    - `--maxinpeers=0` until synced; keep outbound peers for IBD
 5. After start: PID, first ~80 log lines, RSS, alive after 20–30s. Must show peer connect and/or IBD progress or call it a failed experiment.
-6. Watch until fully synced (Finished IBD / IBD 100% / steady tip). If it dies: paste exact OOM/panic/error; restart with the **same datadir** (resync/resume — do not `--reset-db` unless corruption is proven).
+6. Watch until fully synced. Real rusty-kaspa log cues include `IBD with peer … completed successfully` and then steady `Accepted … blocks … via relay` / tip-following (no more IBD %). If it dies: paste exact OOM/panic/error; restart with the **same datadir** (resume — do not `--reset-db` unless corruption is proven).
 7. **When fully synced**, go public:
    - Relaunch same datadir with `--archival`, `--listen=0.0.0.0:16111`, `--maxinpeers` > 0, `--externalip=<public-ip>:16111`
    - If behind Cloudflare WARP / CGNAT / no UPnP: try bind + externalip + any workable TCP tunnel; report honestly if inbound is impossible.
@@ -34,5 +34,7 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
 - Process stays up with peer/IBD activity during sync.
 - After sync: archival + public P2P, real attempt to appear on https://kaspa.stream/nodes.
 - 20-minute keep-alive routine is installed: check only; restart/resume only if down; never wipe datadir.
+
+On https://kaspa.stream/nodes use **IP / hostname** = public IP and **Port** = `16111`, then CHECK.
 
 Stay on mainnet. Prefer action + facts over lectures.
