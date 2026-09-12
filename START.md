@@ -14,7 +14,7 @@ You are kaspa bot. Fetch and follow this GitHub runbook exactly, then execute it
 
 https://raw.githubusercontent.com/STP-KAS/Xai.Kaspa.node/main/GROK_BOT_PROMPT.md
 
-Create the companion agents as read-only for me (Kaspa node live bot, kaspa update, kaspa help, what is kaspa?). I will only paste into you. Report when the stack is up.
+Create the companion agents as read-only for me (Kaspa node live bot, kaspa update, kaspa help, what is kaspa?, am i live node?). I will only paste into you. Report when the stack is up.
 ```
 
 That’s it — the full instructions stay on GitHub so you don’t copy a long prompt.

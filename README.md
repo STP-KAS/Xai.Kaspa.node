@@ -18,7 +18,7 @@ You are kaspa bot. Fetch and follow this GitHub runbook exactly, then execute it
 
 https://raw.githubusercontent.com/STP-KAS/Xai.Kaspa.node/main/GROK_BOT_PROMPT.md
 
-Create the companion agents as read-only for me (Kaspa node live bot, kaspa update, kaspa help, what is kaspa?). I will only paste into you. Report when the stack is up.
+Create the companion agents as read-only for me (Kaspa node live bot, kaspa update, kaspa help, what is kaspa?, am i live node?). I will only paste into you. Report when the stack is up.
 ```
 
 Full runbook (what the bot fetches): [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md)
@@ -32,6 +32,7 @@ Full runbook (what the bot fetches): [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md
 | **kaspa update** | Read-only news + Friday Odie |
 | **kaspa help** | Read-only Discord help |
 | **what is kaspa?** | Read-only explainer (no price predictions) |
+| **am i live node?** | Read-only public check + autofilled arewepublicyet link |
 
 ## Sources (kaspa update)
 
@@ -42,7 +43,7 @@ Full runbook (what the bot fetches): [`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md
 
 ## Checks / help
 
-- https://arewepublicyet.com  
+- Autofilled public check (example): `https://arewepublicyet.com/?address=<ip>&port=<port>` — **am i live node?** builds this from `/tmp/kaspa-tunnel.addr`
 - https://kaspa.stream/nodes  
 - https://discord.gg/kaspa  
 - https://docs.kaspa.org  
