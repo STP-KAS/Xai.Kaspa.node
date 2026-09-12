@@ -51,11 +51,12 @@ That single message is enough: download `kaspad`, run archival IBD privately, fl
 4. **Public after sync**  
    Rebind P2P to `0.0.0.0:16111`, set `--externalip=<public-ip>:16111`, allow inbound. **Public = P2P 16111**, not open RPC.
 
-5. **20-minute keep-alive**  
-   Sandboxes can kill processes or reboot. The prompt installs a standing **`@every 20m`** routine (24/7):  
-   - If `kaspad` is up and still archival → stay quiet  
-   - If dead → restart with the **same datadir** (resume IBD / tip follow; do not wipe), same private-or-public mode, notify once  
-   This does **not** survive a total disk wipe of the VM image, but it does survive process crashes and most agent restarts as long as the datadir still has the chain data.
+5. **20-minute keep-alive (check only; restart only if down)**  
+   Sandboxes can kill processes or reboot. The prompt installs a standing **`@every 20m`** routine (24/7) that **only checks** health:  
+   - If `kaspad` is up and still archival → **do nothing** (no restart, no notify)  
+   - If **down** → restart with the **same datadir** (resume IBD / tip follow; do not wipe), same private-or-public mode, notify once  
+   Never restart a healthy node “just in case.”  
+   This cannot recreate blocks if the filesystem was erased, but it will bring the process back if it merely died while the datadir is intact.
 
 6. **Show up on the map**  
    **https://kaspa.stream/nodes** — look up the bot box’s public IP, port `16111`. Crawlers can take minutes or longer. WARP/CGNAT without a reachable inbound path may block listing even when `kaspad` is listening.
@@ -70,9 +71,9 @@ flowchart LR
   D -->|no| C
   D -->|yes| E[Public P2P 0.0.0.0:16111]
   E --> F[kaspa.stream/nodes]
-  C --> K[Every 20m: alive?]
+  C --> K[Every 20m: check only]
   E --> K
-  K -->|dead| H[Restart same datadir]
+  K -->|down only| H[Restart same datadir]
   H --> C
   H --> E
 ```
@@ -99,6 +100,6 @@ Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
 
 - Archival needs **lots of disk** and steady bandwidth over time.  
 - The node runs on the **bot’s ephemeral Linux sandbox**, not on your Windows PC and not on a VPS you own unless you move it there.  
-- A 20‑minute keep-alive restarts the **process** and resumes from disk; it cannot recreate blocks if the filesystem was erased.  
+- A 20‑minute keep-alive **only checks**; it restarts the **process** (and resumes from disk) **only if the node is down**. It cannot recreate blocks if the filesystem was erased.  
 - Cloudflare WARP may prevent a successful public map CHECK even after sync.  
 - This repo is an operator prompt + notes, not a hosted node service.

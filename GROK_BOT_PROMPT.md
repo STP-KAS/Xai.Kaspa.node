@@ -11,7 +11,7 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
 - Not a public peer until IBD/sync has finished successfully (listen private during IBD).
 - Use `--archival` from the first start (keeps historical block data; heavy disk).
 - Use low-RAM-friendly flags if memory is tight: `--ram-scale=0.3`, modest `--async-threads`, `--disable-upnp` if UPnP is useless here.
-- Ephemeral disks lose data on full machine reset — mitigate by (1) never wiping the datadir on restart, (2) a standing **every 20 minutes** keep-alive routine that restarts `kaspad` and **resumes** IBD from the existing datadir if the process died.
+- Ephemeral disks lose data on full machine reset — mitigate by (1) never wiping the datadir on restart, (2) a standing **every 20 minutes** keep-alive that **checks** `kaspad` and restarts (resume IBD from existing datadir) **only if it is down**.
 
 ## Procedure
 1. Check: `uname -a`, `free -h`, `nproc`, `df -h`, `which docker`, disk for data under `/tmp` or a durable path you create.
@@ -28,11 +28,11 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
    - Relaunch same datadir with `--archival`, `--listen=0.0.0.0:16111`, `--maxinpeers` > 0, `--externalip=<public-ip>:16111`
    - If behind Cloudflare WARP / CGNAT / no UPnP: try bind + externalip + any workable TCP tunnel; report honestly if inbound is impossible.
 8. Verify public: `ss` shows `0.0.0.0:16111`, then look up the IP on **https://kaspa.stream/nodes** (and/or https://arewepublicyet.com).
-9. **Keep-alive (required):** create a standing routine on a **`@every 20m`** schedule (24/7 — node uptime is time-critical). Each run: if `kaspad` is healthy and still `--archival`, stay quiet; if dead/missing, restart with the same flags/mode (private vs public) and **same datadir**, tell me once that you restarted/resumed sync. Never drop `--archival`.
+9. **Keep-alive (required):** create a standing routine on a **`@every 20m`** schedule (24/7 — node uptime is time-critical). Each run: **check only**. If `kaspad` is healthy and still `--archival`, do **nothing** (no restart). If **down**/missing, restart with the same flags/mode (private vs public) and **same datadir**, tell me once. Never restart a healthy node. Never drop `--archival`.
 
 ## Success criteria
 - Process stays up with peer/IBD activity during sync.
 - After sync: archival + public P2P, real attempt to appear on https://kaspa.stream/nodes.
-- 20-minute keep-alive routine is installed and will restart/resume without wiping data.
+- 20-minute keep-alive routine is installed: check only; restart/resume only if down; never wipe datadir.
 
 Stay on mainnet. Prefer action + facts over lectures.
