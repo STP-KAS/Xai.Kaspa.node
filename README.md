@@ -23,6 +23,12 @@ One **Grok Bot** prompt to launch a **Kaspa mainnet archival** full node, sync i
 | Machine | Bot’s Linux sandbox (not a VPS you rent under your name) |
 | Your Windows / phone | Remote control only |
 
+### Requirements on your phone / Windows
+
+**Basically none.** You do not install Kaspa, open ports, or leave a PC running. Chat (and optional GitHub login / [kaspa.stream/nodes](https://kaspa.stream/nodes) CHECK) is enough.
+
+Real requirements live on **Grok Bot’s Linux sandbox**: disk, RAM, CPU for archival IBD, outbound internet to sync, and — for a *listed* public node — inbound TCP `16111` (Cloudflare WARP often blocks that). The 20‑minute keep-alive only checks the process and restarts it if down; it cannot recreate data after a full filesystem wipe.
+
 Same idea as SSHing into a cloud box while you sit on Windows: you steer; the process runs elsewhere.
 
 ### Cloudflare WARP (why the public IP looks odd)
@@ -99,7 +105,7 @@ Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
 ## Limits (honest)
 
 - Archival needs **lots of disk** and steady bandwidth over time.  
-- The node runs on the **bot’s ephemeral Linux sandbox**, not on your Windows PC and not on a VPS you own unless you move it there.  
+- **Your mobile/Windows requirements ≈ none**; the node runs on the **bot’s ephemeral Linux sandbox**, not on your device and not on a VPS you own unless you move it there.  
 - A 20‑minute keep-alive **only checks**; it restarts the **process** (and resumes from disk) **only if the node is down**. It cannot recreate blocks if the filesystem was erased.  
 - Cloudflare WARP may prevent a successful public map CHECK even after sync.  
 - This repo is an operator prompt + notes, not a hosted node service.
