@@ -1,62 +1,39 @@
 # Xai.Kaspa.node
 
-Your own Kaspa Grok Bot team — started from GitHub, not a long copy-paste.
+Run a Kaspa **archival** node on your **Grok Bot Linux sandbox**, plus a small companion team. Node does **not** run on your phone or Windows PC.
 
-## Your team
+## Easiest path
 
-Anyone who follows [`START.md`](./START.md) gets **their own** agents on **their** Grok Bot sandbox. Change things whenever you want. If you break something, return to START.md and re-paste into the same **kaspa bot** — that **refreshes** the team in place (no second set of companions):
+Open [`START.md`](./START.md) → create agent **`kaspa bot`** → paste the short block → send.
 
-https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
+The runbook ([`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md)) is the **standard**: same jobs as the reference live companions. After setup, customize at will — **price talk stays forbidden**.
 
-## Step 1
+Fresh start anytime: https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
 
-1. Create a **new Grok Bot agent** named **`kaspa bot`**
-2. Paste the short block in [`START.md`](./START.md) and send
+## Team (standard)
 
-**kaspa bot = only input.** Companions are day-to-day read-only (still yours to customize via Grok).
+| Agent | Job |
+|-------|-----|
+| **kaspa bot** | Only input / operator — archival node, public via bore if needed, 20m keepalive |
+| **Kaspa node live bot** | Tip/header ticker from local logs |
+| **kaspa update** | Tech news (24h first → every 5h) + Odie Fridays 18:00 local |
+| **kaspa help** | Discord-first help (no seed recovery) |
+| **what is kaspa?** | Explainer — price talk forbidden |
+| **am i live node?** | Public check card from *your* tunnel IP:port |
 
-### Paste this into kaspa bot
-
-```
-You are kaspa bot. This is MY bot team on MY Grok Bot sandbox. Fetch and follow this GitHub runbook exactly, then execute it end-to-end for me:
-
-https://raw.githubusercontent.com/STP-KAS/Xai.Kaspa.node/main/GROK_BOT_PROMPT.md
-
-Create the companion agents as read-only day-to-day helpers (Kaspa node live bot, kaspa update, kaspa help, what is kaspa?, am i live node?). I may customize anything later with Grok; if I mess up I will re-paste from START.md for a fresh start. Report when the stack is up.
-```
-
-## Agents
-
-| Agent | Role |
-|-------|------|
-| **kaspa bot** | Input / operator — your node |
-| **Kaspa node live bot** | Tip ticker |
-| **kaspa update** | News + Friday Odie |
-| **kaspa help** | Discord-first help |
-| **what is kaspa?** | Explainer (no price predictions) |
-| **am i live node?** | Public check card — per-user IP from that sandbox’s tunnel (updates when IP/port changes) |
-
-## Am I live? (per user)
-
-**am i live node?** is custom per user: it reads **that** sandbox’s `/tmp/kaspa-tunnel.addr` and rebuilds the card when IP/port changes (new bore tunnel, etc.).
-
-The site form often opens **empty** — use the card values:
-
-1. Open https://arewepublicyet.com/
-2. **Address** / **Port** from the bot card (or first `ip:port` in `/tmp/kaspa-tunnel.addr`)
-3. **Network** = mainnet
-4. Click **Test Node Connectivity**
-
-Also: https://kaspa.stream/nodes (map can lag even when the check passes).
-
-## Sources (kaspa update)
+## Always-check sources (kaspa update)
 
 - https://kaspaexplained.com  
 - https://x.com/KASPAglobal  
 - https://x.com/kaspaunchained  
 - https://kaspa.stream/  
 
-## Help / docs
+## Public?
+
+- https://arewepublicyet.com (use Address + Port from **am i live node?** — form often opens empty)  
+- https://kaspa.stream/nodes (map can lag)
+
+## Help
 
 - https://discord.gg/kaspa  
 - https://docs.kaspa.org  
