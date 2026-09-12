@@ -39,6 +39,20 @@ Outbound traffic from the bot’s Linux box is often wrapped by **Cloudflare WAR
 
 For the [kaspa.stream/nodes](https://kaspa.stream/nodes) CHECK to succeed, other peers must connect **in** to `IP:16111`. WARP/NAT often allows outbound sync but blocks or does not forward **inbound**. So the node can sync fine and still fail the map CHECK. A reliably public node usually needs a real VPS (or home network) with port `16111` reachable from the internet.
 
+
+## Am I public?
+
+Primary active check (use this first):
+
+**https://arewepublicyet.com**
+
+Enter the address you advertise in `--externalip` (for a Grok Bot + bore setup that is often `bore` IPv4 + **tunnel port**, not WARP `:16111`). A green **Node is Public and Accessible** / API `success: true` means P2P-gRPC handshake worked.
+
+Map / discovery (can lag even when arewepublicyet already passes):
+
+- https://kaspa.stream/nodes  
+- https://kaspaglo.be/ (manual peer submit helps the next crawl)
+
 ## Quick start
 
 1. Open Grok Bot (mobile is fine).  

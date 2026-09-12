@@ -28,7 +28,7 @@ You have a Linux sandbox. Goal: run a Kaspa **mainnet archival** full node, make
    - If the box public IP is Cloudflare WARP / inbound fails: run a TCP tunnel to local P2P, e.g. `bore local 16111 --to bore.pub`, note `bore.pub:<port>`, resolve IPv4 of `bore.pub`.
    - Relaunch same datadir with `--archival`, `--listen=127.0.0.1:16111` (or `0.0.0.0` if truly bare-metal public), `--maxinpeers` > 0, `--externalip=<reachable-ipv4>:<port>` (tunnel port when using bore — **not** always 16111).
    - `--externalip` must be `ip:port` (no hostname).
-8. Verify public: tunnel + kaspad both alive; CHECK on **https://kaspa.stream/nodes** with that **same IP and port**. Report honestly if still “not known.”
+8. Verify public: tunnel + kaspad both alive. First probe **https://arewepublicyet.com** with that **same IP and port** (active P2P-gRPC). Then CHECK **https://kaspa.stream/nodes** (map can lag even when arewepublicyet already succeeds). Report both results honestly.
 9. **Keep-alive (required):** create a standing routine on a **`@every 20m`** schedule (24/7 — node uptime is time-critical). Each run: **check only**. If `kaspad` is healthy and still `--archival`, do **nothing** (no restart). If **down**/missing, restart with the same flags/mode (private vs public) and **same datadir**, tell me once. Never restart a healthy node. Never drop `--archival`.
 
 ## Success criteria
