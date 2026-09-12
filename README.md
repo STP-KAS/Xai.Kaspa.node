@@ -4,7 +4,7 @@ Your own Kaspa Grok Bot team — started from GitHub, not a long copy-paste.
 
 ## Your team
 
-Anyone who follows [`START.md`](./START.md) gets **their own** agents on **their** Grok Bot sandbox. Change things whenever you want. If you break something, return to START.md for a **fresh start**:
+Anyone who follows [`START.md`](./START.md) gets **their own** agents on **their** Grok Bot sandbox. Change things whenever you want. If you break something, return to START.md and re-paste into the same **kaspa bot** — that **refreshes** the team in place (no second set of companions):
 
 https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
 
