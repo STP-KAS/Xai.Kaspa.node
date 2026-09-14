@@ -4,7 +4,12 @@ Run a Kaspa **archival** node on your **Grok Bot Linux sandbox**, plus a small c
 
 ## Easiest path
 
-Open [`START.md`](./START.md) → create agent **`kaspa bot`** → paste the short block → send.
+Open [`START.md`](./START.md):
+
+1. Create a new Grok Bot agent
+2. Name it **`kaspa bot`**
+3. Paste the block into that agent and send
+4. Let it do its job — **do not interfere**
 
 The runbook ([`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md)) is the **standard**: same jobs as the reference live companions. After setup, customize at will — **price talk stays forbidden**.
 
