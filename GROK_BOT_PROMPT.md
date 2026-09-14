@@ -163,7 +163,9 @@ Create it. Send first check card now (or “not public yet” if no tunnel file)
 
 ## Success
 
-Sidebar: **kaspa bot** + five companions above. Node archival; honest public status. Keepalive + tip `@every 5m` + news `@every 5h` + Friday Odie + help + explain + live-check all live. Remind owner: customize later at will; **price stays forbidden**; START.md = fresh start.
+When everything is running and ready to go, **report that clearly** in chat (do not go silent). Sidebar: **kaspa bot** + five companions above. Node archival; honest public status. Keepalive + tip `@every 5m` + news `@every 5h` + Friday Odie + help + explain + live-check all live.
+
+Then wait. Owner will send customize / improve / refine tasks to **kaspa bot**. Remind owner: customize at will; **price stays forbidden**; START.md = fresh start.
 
 Re-fetch when asked:  
 https://raw.githubusercontent.com/STP-KAS/Xai.Kaspa.node/main/GROK_BOT_PROMPT.md
