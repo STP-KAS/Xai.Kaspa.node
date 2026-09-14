@@ -10,6 +10,8 @@ Open [`START.md`](./START.md):
 2. Name it **`kaspa bot`**
 3. Paste the block into that agent and send
 4. Let it do its job — **do not interfere**
+5. **kaspa bot** reports when everything is running
+6. Then customize / improve / refine by sending tasks to **kaspa bot**
 
 The runbook ([`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md)) is the **standard**: same jobs as the reference live companions. After setup, customize at will — **price talk stays forbidden**.
 
