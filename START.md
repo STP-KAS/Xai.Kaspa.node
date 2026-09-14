@@ -16,6 +16,8 @@ The node runs there — **not** on your phone or PC.
 
 Price talk stays forbidden (see `what is kaspa?`).
 
+This paste is **mainnet only**. Testnet-10 node + miner is a **separate** agent named **tn10 bot**: https://github.com/STP-KAS/groks-wallet/blob/main/START-TN10.md — do not paste that here.
+
 Messed up? Come back here and start again:  
 https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
 
