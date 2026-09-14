@@ -1,15 +1,22 @@
 # Start here
 
-One short paste → your own Kaspa bot team on **your** Grok Bot Linux sandbox (node runs there, not on your phone/PC).
+This sets up **your** Kaspa bot team on **your** Grok Bot Linux sandbox.
 
-## Step 1
-1. Create a **new Grok Bot agent**
-2. Name it **`kaspa bot`**
-3. Paste the block below and send
+The node runs there — **not** on your phone or PC.
 
-Companions match the **live standard** in this repo. After setup you may change anything you want — except **price talk stays forbidden** (see `what is kaspa?`).
+## Do this
 
-Messed up? Come back here for a **fresh start**:  
+1. Create a **new Grok Bot agent**.
+2. Name it **`kaspa bot`**.
+3. Paste the block below into the **kaspa bot** agent you just created.
+4. Send it.
+5. **Let it do its job. Do not interfere.**
+
+Do not send more messages. Do not click around in the other bots. Wait until **kaspa bot** reports that the stack is up.
+
+After that you may change anything you want — except **price talk stays forbidden** (see `what is kaspa?`).
+
+Messed up? Come back here and start again:  
 https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
 
 ### Paste this
