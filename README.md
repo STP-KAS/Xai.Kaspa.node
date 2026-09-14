@@ -17,6 +17,8 @@ The runbook ([`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md)) is the **standard**: 
 
 Fresh start anytime: https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
 
+**Testnet-10 is a different bot.** `kaspa bot` stays on **mainnet**. TN10 node + miner is **tn10 bot**, paying Grok’s wallet: [STP-KAS/groks-wallet START-TN10.md](https://github.com/STP-KAS/groks-wallet/blob/main/START-TN10.md). Do not paste TN10 into kaspa bot.
+
 ## Team (standard)
 
 | Agent | Job |
