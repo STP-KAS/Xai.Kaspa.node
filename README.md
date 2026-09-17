@@ -21,6 +21,8 @@ Fresh start anytime: https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.m
 
 **Testnet-10 is a different bot.** `kaspa bot` stays on **mainnet**. TN10 node + miner is **tn10 bot**, paying Grok’s wallet: [STP-KAS/groks-wallet START-TN10.md](https://github.com/STP-KAS/groks-wallet/blob/main/START-TN10.md). Do not paste TN10 into kaspa bot.
 
+This sandbox’s live fleet: **1 mainnet archival node** (kaspa bot), **1 Testnet-10 node** + **150 one-thread Testnet-10 miners** (tn10 bot). Keepalive holds the 150-miner farm. Count: `/tmp/kaspa-tn10-miners/status.json` `alive`.
+
 ## Team (standard)
 
 | Agent | Job |
