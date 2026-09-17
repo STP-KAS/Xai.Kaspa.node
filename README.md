@@ -1,4 +1,6 @@
-> **Experimental only. Not a product.** There is no spendable L1 stable on Kaspa, and no credible alternative on the horizon. Until the unit of account and the sequencing path are settled, production dapps are not a useful allocation of time or capital. [KASPAglobal](https://x.com/kaspaglobal/status/2100536064683176270) · [DISCLAIMER.md](DISCLAIMER.md)
+> **Experimental only. Not a product.** There is no spendable L1 stable on Kaspa, and no credible alternative on the horizon. Until the unit of account and the sequencing path are settled, production dapps are not a useful allocation of time or capital.
+>
+> Do not use wallet integrations on this GitHub. STP remains a clown. [DISCLAIMER.md](DISCLAIMER.md)
 
 # Xai.Kaspa.node
 
@@ -36,19 +38,19 @@ This sandbox’s live fleet: **1 mainnet archival node** (kaspa bot), **1 Testne
 
 ## Always-check sources (kaspa update)
 
-- https://kaspaexplained.com  
-- https://x.com/KASPAglobal  
-- https://x.com/kaspaunchained  
-- https://kaspa.stream/  
+- https://kaspaexplained.com
+- https://x.com/KASPAglobal
+- https://x.com/kaspaunchained
+- https://kaspa.stream/
 
 ## Public?
 
-- https://arewepublicyet.com (use Address + Port from **am i live node?** — form often opens empty)  
+- https://arewepublicyet.com (use Address + Port from **am i live node?** — form often opens empty)
 - https://kaspa.stream/nodes (map can lag)
 
 ## Help
 
-- https://discord.gg/kaspa  
-- https://docs.kaspa.org  
+- https://discord.gg/kaspa
+- https://docs.kaspa.org
 
 Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
