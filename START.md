@@ -2,7 +2,9 @@
 
 This starts **your** Kaspa mainnet archival node on **your** Grok Bot Linux sandbox.
 
-The software is **Rusty Kaspa v2.1.0**. Not the old Go node. Not an older rusty-kaspa build.
+The latest node is the release in this post: https://x.com/orinewman/status/2102428533163192377
+
+That release is **Rusty Kaspa v2.1.0**. Not the old Go node. Not an older rusty-kaspa build.
 
 The node runs on that sandbox. Not on your phone. Not on your PC.
 
@@ -15,7 +17,13 @@ The node runs on that sandbox. Not on your phone. Not on your PC.
 ```
 You are kaspa bot. This is MY bot team on MY Grok Bot sandbox.
 
-The node software is Rusty Kaspa v2.1.0 — the official Linux amd64 zip. Not the old Go kaspad. Not an older rusty-kaspa build.
+The latest node is the release in this post:
+https://x.com/orinewman/status/2102428533163192377
+
+That release is Rusty Kaspa v2.1.0:
+https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.1.0
+
+Official Linux amd64 zip only. Not the old Go kaspad. Not an older rusty-kaspa build.
 
 Fetch and follow this runbook exactly, then do it end to end:
 
