@@ -4,56 +4,78 @@
 
 # Xai.Kaspa.node
 
-Run a Kaspa **archival** node on your **Grok Bot Linux sandbox**, plus a small companion team. Node does **not** run on your phone or Windows PC.
+One paste. It starts a Kaspa **mainnet archival** node on your Grok Bot Linux sandbox.
 
-## Easiest path
+Software: [Rusty Kaspa **v2.1.0**](https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.1.0) (P2P protocol 11). The old Go kaspad is not this node.
 
-Open [`START.md`](./START.md):
+The node does **not** run on your phone or Windows PC.
 
-1. Create a new Grok Bot agent
-2. Name it **`kaspa bot`**
-3. Paste the block into that agent and send
-4. Let it do its job — **do not interfere**
-5. **kaspa bot** reports when everything is running
-6. Then customize / improve / refine by sending tasks to **kaspa bot**
+## Do this
 
-The runbook ([`GROK_BOT_PROMPT.md`](./GROK_BOT_PROMPT.md)) is the **standard**: same jobs as the reference live companions. After setup, customize at will — **price talk stays forbidden**.
+1. Create a new Grok Bot agent.
+2. Name it **kaspa bot**.
+3. Copy this block into that agent and send it.
 
-Fresh start anytime: https://github.com/STP-KAS/Xai.Kaspa.node/blob/main/START.md
+```
+You are kaspa bot. This is MY bot team on MY Grok Bot sandbox.
 
-**Testnet-10 is a different bot.** `kaspa bot` stays on **mainnet**. TN10 node + miner is **tn10 bot**, paying Grok’s wallet: [STP-KAS/groks-wallet START-TN10.md](https://github.com/STP-KAS/groks-wallet/blob/main/START-TN10.md). Do not paste TN10 into kaspa bot.
+The node software is Rusty Kaspa v2.1.0 — the official Linux amd64 zip. Not the old Go kaspad. Not an older rusty-kaspa build.
 
-This sandbox’s live fleet: **1 mainnet archival node** (kaspa bot), **1 Testnet-10 node** + **150 one-thread Testnet-10 miners** (tn10 bot). Miners use random addresses. The faucet still pays from Grok’s locked main TN10 address; miners top it up when that balance is under **1,000,000 tKAS**. Keepalive holds the 150-miner farm. Count: `/tmp/kaspa-tn10-miners/status.json` `alive`.
+Fetch and follow this runbook exactly, then do it end to end:
 
-## Team (standard)
+https://raw.githubusercontent.com/STP-KAS/Xai.Kaspa.node/main/GROK_BOT_PROMPT.md
+
+Create the companions with the exact names in that file. After setup I may change anything except price talk (always forbidden). If I mess up I will paste this block again.
+
+When the node is running and the companions are ready, say so clearly. Then wait.
+```
+
+4. Leave it alone until it says it is ready.
+5. After that, send changes to **kaspa bot**.
+
+Same steps, shorter page: [START.md](./START.md).
+
+Price talk stays off. Mainnet only.
+
+Testnet-10 is a different agent, **tn10 bot**: [START-TN10.md](https://github.com/STP-KAS/groks-wallet/blob/main/START-TN10.md). Do not paste that into kaspa bot.
+
+## What it sets up
 
 | Agent | Job |
-|-------|-----|
-| **kaspa bot** | Only input / operator — archival node, public via bore if needed, 20m keepalive |
-| **Kaspa node live bot** | Tip/header ticker from local logs |
-| **kaspa update** | Tech news (24h first → every 5h) + Odie Fridays 18:00 local |
-| **kaspa help** | Discord-first help (no seed recovery) |
-| **what is kaspa?** | Explainer — price talk forbidden |
-| **am i live node?** | Public check card from *your* tunnel IP:port |
+| --- | --- |
+| **kaspa bot** | The only one you talk to. Runs the node. |
+| **Kaspa node live bot** | Tip ticker from the local log |
+| **kaspa update** | Tech news, then every 5h. Odie clip Fridays 18:00 local |
+| **kaspa help** | Points at Discord. No seed recovery |
+| **what is kaspa?** | Explainer. Price talk forbidden |
+| **am i live node?** | Your public address and port |
 
-## Always-check sources (kaspa update)
+The runbook is [GROK_BOT_PROMPT.md](./GROK_BOT_PROMPT.md). After setup you can change the team. You cannot turn price talk back on.
+
+## Is it public?
+
+**am i live node?** gives you an address and a port. Use those here:
+
+- https://arewepublicyet.com (the form often opens empty — paste address and port)
+- https://kaspa.stream/nodes (the map can lag)
+
+Only port **16111** is the public P2P port. RPC stays on the sandbox.
+
+## News sources
+
+kaspa update always checks:
 
 - https://kaspaexplained.com
 - https://x.com/KASPAglobal
 - https://x.com/kaspaunchained
 - https://kaspa.stream/
 
-## Public?
-
-- https://arewepublicyet.com (use Address + Port from **am i live node?** — form often opens empty)
-- https://kaspa.stream/nodes (map can lag)
-
 ## Help
 
 - https://discord.gg/kaspa
 - https://docs.kaspa.org
 
-Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
+Upstream: https://github.com/kaspanet/rusty-kaspa
 
 ---
 
@@ -61,5 +83,5 @@ Upstream: [kaspanet/rusty-kaspa](https://github.com/kaspanet/rusty-kaspa).
 >
 > Intentions are good; thought process is questionable. STP remains delusional. Si vis pacem, para bellum.
 >
-> Intern at https://sixpack.wtf/  
+> Intern at https://sixpack.wtf/
 > X: https://x.com/StppStp · GitHub: https://github.com/STP-KAS
