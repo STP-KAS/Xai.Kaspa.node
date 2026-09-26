@@ -4,6 +4,8 @@
 
 # Xai.Kaspa.node
 
+> **Status 26 Sep 2026:** this is a generic runbook. The desk's own kaspa bot node started from it was stopped and wiped on 25 Sep 2026 at 16:46 CEST; the desk box now runs Testnet-10 only. Result of the desk's mainnet test: [Xai.mainnet.public.nodes](https://github.com/STP-KAS/Xai.mainnet.public.nodes).
+
 One paste. It starts a Kaspa **mainnet archival** node on your Grok Bot Linux sandbox.
 
 Software: latest node from [this post](https://x.com/orinewman/status/2102428533163192377) — [Rusty Kaspa **v2.1.0**](https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.1.0) (P2P protocol 11). The old Go kaspad is not this node.

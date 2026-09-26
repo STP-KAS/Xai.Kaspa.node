@@ -1,5 +1,7 @@
 # Start here
 
+> **Status 26 Sep 2026:** this is a generic runbook. The desk's own kaspa bot node started from it was stopped and wiped on 25 Sep 2026 at 16:46 CEST; the desk box now runs Testnet-10 only. Result of the desk's mainnet test: [Xai.mainnet.public.nodes](https://github.com/STP-KAS/Xai.mainnet.public.nodes).
+
 This starts **your** Kaspa mainnet archival node on **your** Grok Bot Linux sandbox.
 
 The latest node is the release in this post: https://x.com/orinewman/status/2102428533163192377
